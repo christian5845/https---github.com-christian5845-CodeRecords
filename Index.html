@@ -6,33 +6,43 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/Style.css" />
-    <script src="./js/Main.js"></script>
+    
     
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src ="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   
   </head>
   <body>
-    <div id="app">
+    
 <div id="app">
-    <button @click="showRecords(); ShowAllRecords = true">Show Records</button>
-        <table class="table" v-if="ShowAllRecords">
+ 
+    <button class="btn btn-primary" @click="showRecords(); showAllRecords = true">Show Records</button>
+    <button class="btn btn-secondary" @click="showAllRecords = false">Hide Records</button>
+        <table class="table" v-if="showAllRecords">
             <thead>
                 <tr>
                     <th>Title</th>
                     <th>Artist</th>
+                    <th>Duration</th>
+                    <th>Release Year</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="record in records" :key="record.id">
                     <td>{{ record.title }}</td>
                     <td>{{ record.artist }}</td>
+                    <td>{{ record.duration }}</td>
+                    <td>{{ record.publicationYear }}</td>
                 </tr>
             </tbody>
         </table>
-    <p>ShowAllRecords: {{ ShowAllRecords }}</p>
+        <input type="text" v-model="filteredRecordsByArtist" placeholder="Filter by Artist">
+        <input type="text" v-model="filteredRecordsByTitle" placeholder="Filter by Title">
+        <button class="btn btn-primary" @click="filterRecordsByArtist()">Filter by Artist</button>
+        <button class="btn btn-primary" @click="filterRecordsByTitle()">Filter by Title</button>
 
 </div>
-
+<script src="./js/Main.js"></script>
   </body>
 </html>
