@@ -21,34 +21,8 @@
     <button class="btn btn-secondary" @click="showAllRecords = false">Hide Records</button>
 
     <login-logout></login-logout>
+    <records-display :records="records" :show-all-records="showAllRecords" @changed="showRecords"></records-display>
 
-    <!-- <span v-if="!isLoggedIn">
-        <input type="text" v-model="userName" placeholder="Username">
-        <input type="password" v-model="password" placeholder="Password">
-        <button class="btn btn-primary" @click="login()">Login</button>
-    </span>
-    <span v-if="isLoggedIn">
-        <button class="btn btn-danger" @click="Logout()">Logout</button>
-    </span> -->
-
-        <table class="table" v-if="showAllRecords">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Artist</th>
-                    <th>Duration</th>
-                    <th>Release Year</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="record in records" :key="record.id">
-                    <td>{{ record.title }}</td>
-                    <td>{{ record.artist }}</td>
-                    <td>{{ record.duration }}</td>
-                    <td>{{ record.publicationYear }}</td>
-                </tr>
-            </tbody>
-        </table>
         <input type="text" v-model="filteredRecordsByTitle" placeholder="Filter by Title">
         <input type="text" v-model="filteredRecordsByArtist" placeholder="Filter by Artist">
         
@@ -60,6 +34,7 @@
 </div>
 <script src="./js/Main.js"></script>
 <script src ="./components/LoginLogout.js"></script>
+<script src ="./components/RecordsDisplay.js"></script>
 <script>app.mount("#app");</script>
   </body>
 </html>
