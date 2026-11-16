@@ -14,9 +14,9 @@ const app = Vue.createApp({
             allRecords: [],
             filteredRecordsByArtist: "",
             filteredRecordsByTitle: "",
-            userName: "",
-            password: "",
-            isLoggedIn: sessionStorage.getItem("jwt") !== null
+            // userName: "",
+            // password: "",
+            // isLoggedIn: sessionStorage.getItem("jwt") !== null
         };
     },
 
@@ -51,27 +51,26 @@ const app = Vue.createApp({
             }
         },
 
-        login() {
-            axios.post("http://localhost:5292/api/auth/login", {
-                userName: this.userName,
-                password: this.password
-            })
-            .then(response => {
-                const token = response.data.token;
+        // login() {
+        //     axios.post("http://localhost:5292/api/auth/login", {
+        //         userName: this.userName,
+        //         password: this.password
+        //     })
+        //     .then(response => {
+        //         const token = response.data.token;
 
-                sessionStorage.setItem("jwt", token);
-                axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-                this.isLoggedIn = true;
-            })
-            .catch(error => console.error(error));
-        },
+        //         sessionStorage.setItem("jwt", token);
+        //         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        //         this.isLoggedIn = true;
+        //     })
+        //     .catch(error => console.error(error));
+        // },
 
-        Logout() {
-            sessionStorage.removeItem("jwt");
-            delete axios.defaults.headers.common["Authorization"];
-            this.isLoggedIn = false;
-        }
+        // Logout() {
+        //     sessionStorage.removeItem("jwt");
+        //     delete axios.defaults.headers.common["Authorization"];
+        //     this.isLoggedIn = false;
+        // }
     }
 });
 
-app.mount("#app");
