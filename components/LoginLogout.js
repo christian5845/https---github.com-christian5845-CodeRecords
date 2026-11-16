@@ -3,12 +3,13 @@ app.component('login-logout', {
     /*html*/ 
     `
     <span v-if="!isLoggedIn">
-        <input type="text" v-model="userName" placeholder="Username">
-        <input type="password" v-model="password" placeholder="Password">
-        <button class="btn btn-primary" @click="login()">Login</button>
+        <input id="username" type="text" v-model="userName" placeholder="Username">
+        <input  id="password" type="password" v-model="password" placeholder="Password">
+        <button id="login" class="btn btn-primary" @click="login()">Login</button>
     </span>
     <span v-if="isLoggedIn">
-        <button class="btn btn-danger" @click="Logout()">Logout</button>
+    <p id="logged-in">Logged in as: {{ userName }}</p>
+        <button id="logout" class="btn btn-danger" @click="Logout()">Logout</button>
     </span>
     `,
     
