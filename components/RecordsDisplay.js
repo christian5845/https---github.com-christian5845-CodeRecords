@@ -5,7 +5,8 @@ app.component('records-display', {
     template: /*html*/ `
         <div>
             <!-- Tilføj ny plade -->
-            <div class="my-2">
+            <h2 class="section-title">Add a record</h2>
+            <div class="add-form">
                 <input type="text" v-model="newRecord.Title" placeholder="Title">
                 <input type="text" v-model="newRecord.Artist" placeholder="Artist">
                 <input type="number" v-model.number="newRecord.Duration" placeholder="Duration (sek)">
@@ -13,7 +14,11 @@ app.component('records-display', {
                 <button class="btn btn-success" @click="addRecord()">Add Record</button>
             </div>
 
-            <table class="table" v-if="showAllRecords">
+            <div class="empty-state" v-if="!showAllRecords">
+                Press "Show Records" to see the collection.
+            </div>
+
+            <table class="table records-table" v-if="showAllRecords">
                 <thead>
                     <tr>
                         <th>Title</th>

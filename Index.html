@@ -2,35 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Records</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/Style.css" />
-    
-    
+
+
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src ="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-   
+
   </head>
   <body>
-    
+
 <div id="app">
- 
-    <button class="btn btn-primary" @click="showRecords(); showAllRecords = true">Show Records</button>
-    <button class="btn btn-secondary" @click="showAllRecords = false">Hide Records</button>
 
-    <login-logout></login-logout>
-    <records-display :records="records" :show-all-records="showAllRecords" @changed="showRecords"></records-display>
+    <header class="app-header">
+        <div class="app-title">
+            <span class="vinyl"></span>
+            <h1>DR <span>Music</span> Records</h1>
+        </div>
+        <div class="app-auth">
+            <login-logout></login-logout>
+        </div>
+    </header>
 
-        <input type="text" v-model="filteredRecordsByTitle" placeholder="Filter by Title">
-        <input type="text" v-model="filteredRecordsByArtist" placeholder="Filter by Artist">
-        
-        <button class="btn btn-primary" @click="filterRecordsByTitle()">Filter by Title</button>
-        <button class="btn btn-primary" @click="filterRecordsByArtist()">Filter by Artist</button>
+    <main class="app-main">
 
+        <section class="panel toolbar">
+            <div class="toolbar-group">
+                <button class="btn btn-primary" @click="showRecords(); showAllRecords = true">Show Records</button>
+                <button class="btn btn-outline-secondary" @click="showAllRecords = false">Hide Records</button>
+            </div>
 
-    
+            <div class="toolbar-group">
+                <input type="text" v-model="filteredRecordsByTitle" placeholder="Filter by Title">
+                <button class="btn btn-primary" @click="filterRecordsByTitle()">Filter by Title</button>
+                <input type="text" v-model="filteredRecordsByArtist" placeholder="Filter by Artist">
+                <button class="btn btn-primary" @click="filterRecordsByArtist()">Filter by Artist</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <records-display :records="records" :show-all-records="showAllRecords" @changed="showRecords"></records-display>
+        </section>
+
+    </main>
+
 </div>
 <script src="./js/Main.js"></script>
 <script src ="./components/LoginLogout.js"></script>
