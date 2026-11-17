@@ -18,7 +18,7 @@ app.component('records-display', {
                 Press "Show Records" to see the collection.
             </div>
 
-            <table class="table records-table" v-if="showAllRecords">
+            <table id="recordsTable" class="table records-table" v-if="showAllRecords">
                 <thead>
                     <tr>
                         <th>Title</th>

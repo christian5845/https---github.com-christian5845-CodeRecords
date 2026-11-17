@@ -32,15 +32,15 @@
 
         <section class="panel toolbar">
             <div class="toolbar-group">
-                <button class="btn btn-primary" @click="showRecords(); showAllRecords = true">Show Records</button>
-                <button class="btn btn-outline-secondary" @click="showAllRecords = false">Hide Records</button>
+                <button id="showRecordsBtn" class="btn btn-primary" @click="showRecords(); showAllRecords = true">Show Records</button>
+                <button id="hideRecordsBtn" class="btn btn-outline-secondary" @click="showAllRecords = false">Hide Records</button>
             </div>
 
             <div class="toolbar-group">
-                <input type="text" v-model="filteredRecordsByTitle" placeholder="Filter by Title">
-                <button class="btn btn-primary" @click="filterRecordsByTitle()">Filter by Title</button>
-                <input type="text" v-model="filteredRecordsByArtist" placeholder="Filter by Artist">
-                <button class="btn btn-primary" @click="filterRecordsByArtist()">Filter by Artist</button>
+                <input id="filterByTitle" type="text" v-model="filteredRecordsByTitle" placeholder="Filter by Title">
+                <button id="filterByTitleBtn" class="btn btn-primary" @click="filterRecordsByTitle()">Filter by Title</button>
+                <input id="filterByArtist" type="text" v-model="filteredRecordsByArtist" placeholder="Filter by Artist">
+                <button id="filterByArtistBtn" class="btn btn-primary" @click="filterRecordsByArtist()">Filter by Artist</button>
             </div>
         </section>
 
