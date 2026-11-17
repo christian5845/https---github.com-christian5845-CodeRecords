@@ -38,8 +38,8 @@ app.component('records-display', {
                             <td><input type="number" v-model.number="editRecord.duration"></td>
                             <td><input type="number" v-model.number="editRecord.publicationYear"></td>
                             <td>
-                                <button class="btn btn-success btn-sm" @click="updateRecord()">Save</button>
-                                <button class="btn btn-secondary btn-sm" @click="cancelEdit()">Cancel</button>
+                                <button id="saveBtn" class="btn btn-success btn-sm" @click="updateRecord()">Save</button>
+                                <button id="cancelBtn" class="btn btn-secondary btn-sm" @click="cancelEdit()">Cancel</button>
                             </td>
                         </template>
 
@@ -50,8 +50,8 @@ app.component('records-display', {
                             <td>{{ record.duration }}</td>
                             <td>{{ record.publicationYear }}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm" @click="startEdit(record)">Update</button>
-                                <button class="btn btn-danger btn-sm" @click="deleteRecord(record.id)">Delete</button>
+                                <button id="updateBtn" class="btn btn-primary btn-sm" @click="startEdit(record)">Update</button>
+                                <button id="deleteBtn" class="btn btn-danger btn-sm" @click="deleteRecord(record.id)">Delete</button>
                             </td>
                         </template>
 
